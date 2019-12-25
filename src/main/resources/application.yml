@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        name: SpringSecurtyWorkshop
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./h2-data-home/trace
+
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: update
+
+  session:
+    jdbc:
+      save-mode: on_set_attribute
