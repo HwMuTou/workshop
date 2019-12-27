@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<H1>Hello World</H1>
+<a href="/swagger-ui.html">
+    Swagger-UI Page
+</a>
+
+<br/>
+
+<div>
+    <label>
+        Show /me Response
+    </label>
+    <br>
+    <textarea id="meBox" cols=90 rows=60 style="font-size: 3vh"></textarea>
+</div>
+
+<button id="loadMe">LoadMe</button>
+
+
+<script>
+    function loadMe() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let responseData = JSON.parse(this.responseText);
+                document.getElementById("meBox").value = JSON.stringify(responseData, undefined, 4)
+            }
+        };
+        xhttp.open("GET", "/me", true);
+        xhttp.send();
+    }
+
+    loadMe()
+</script>
+
+</body>
+</html>
